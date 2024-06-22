@@ -32,7 +32,7 @@ router.post("/post", requireAuth, async (req, res) => {
   }
 });
 
-router.get("/discussions", async (req, res) => {
+router.get("/discussions", requireAuth, async (req, res) => {
   try {
     const posts = await Post.find()
       .populate("author", "firstName lastName email") // Populate author details
@@ -42,6 +42,22 @@ router.get("/discussions", async (req, res) => {
       });
 
     res.status(200).json(posts);
+  } catch (error) {
+    res.status(400).send("Error fetching posts: " + error.message);
+  }
+});
+
+router.get("/discussionsById",requireAuth, async (req, res) => {
+  try {
+    const id = req.body.postId
+    const post = await Post.findById(id)
+      .populate("author", "firstName lastName email") // Populate author details
+      .populate({
+        path: "comments",
+        populate: { path: "author", select: "firstName lastName email" }, // Populate author details of each comment
+      });
+
+    res.status(200).json(post);
   } catch (error) {
     res.status(400).send("Error fetching posts: " + error.message);
   }
