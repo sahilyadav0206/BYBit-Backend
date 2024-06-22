@@ -30,10 +30,7 @@ const mongoURI =
   "mongodb+srv://sahillyadav:RgsytuS8E62ldsIG@encrypto.jp0wwqt.mongodb.net/?retryWrites=true&w=majority&appName=Encrypto";
 
 mongoose
-  .connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(mongoURI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
 
