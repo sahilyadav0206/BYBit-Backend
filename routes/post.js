@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { requireAuth } = require("../middleware/auth");
 const Post = require("../models/post");
-const UserData = require("../models/UserData");
+const UserData = require("../models/userData");
 const Comment = require("../models/Comment");
 
 // POST /post - Create a new post
