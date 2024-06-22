@@ -6,6 +6,7 @@ const watchlistRouter = require("./routes/watchlist");
 const authRouter = require("./routes/auth");
 const postRouter = require("./routes/post");
 const cookieParser = require("cookie-parser");
+const commentRouter = require("./routes/comment");
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(cookieParser());
 app.use(watchlistRouter);
 app.use(authRouter);
 app.use(postRouter);
+app.use(commentRouter);
 
 // MongoDB connection
 const mongoURI =
