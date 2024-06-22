@@ -3,7 +3,7 @@ const router = express.Router();
 const { requireAuth } = require("../middleware/auth");
 const Post = require("../models/post");
 const UserData = require("../models/userData");
-const Comment = require("../models/Comment");
+const Comment = require("../models/comment");
 
 // POST /post - Create a new post
 router.post("/post", requireAuth, async (req, res) => {
