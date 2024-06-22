@@ -12,7 +12,7 @@ const app = express();
 const port = process.env.PORT || 8080;
 
 const corsOptions = {
-  origin: "http://localhost:3000", // Replace with your frontend URL
+  origin: "https://bybit-alpha.vercel.app/", // Replace with your frontend URL
   credentials: true, // This is important for cookies to be included
 };
 
