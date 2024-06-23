@@ -76,7 +76,7 @@ router.post("/login", async (req, res) => {
     });
     res.cookie("authToken", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production", // Ensure this is only true in production
+      secure: true, // Ensure this is only true in production
       sameSite: "None",
       maxAge: 24 * 60 * 60 * 1000 //1 day
     });
