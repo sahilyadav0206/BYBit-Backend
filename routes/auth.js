@@ -77,7 +77,8 @@ router.post("/login", async (req, res) => {
     res.cookie("authToken", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production", // Ensure this is only true in production
-      sameSite: "strict",
+      sameSite: "None",
+      maxAge: 24 * 60 * 60 * 1000 //1 day
     });
     // res.status(200).json({ authToken: token });
     res.send({ message: "Login successful" });
@@ -91,7 +92,7 @@ router.post("/logout", (req, res) => {
   res.clearCookie("authToken", {
     httpOnly: true,
     // secure: true,
-    sameSite: "strict",
+    sameSite: "None",
   });
   res.status(200).send("Logout successful");
 });
